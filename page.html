@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
+    <link rel="stylesheet" href="page.css">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+   </head>
+   
+<body>
+  <div class="container">
+    <input type="checkbox" id="flip">
+    <div class="cover">
+      <div class="front">
+        <!--<img src="images/frontImg.jpg" alt="">-->
+        <div class="text">
+          <span class="text-1">Every new friend is a <br> new adventure</span>
+          <span class="text-2">Let's get connected</span>
+        </div>
+      </div>
+      <div class="back">
+        <!--<img class="backImg" src="images/backImg.jpg" alt="">-->
+        <div class="text">
+          <span class="text-1">Complete miles of journey <br> with one step</span>
+          <span class="text-2">Let's get started</span>
+        </div>
+      </div>
+    </div>
+    <div class="forms">
+        <div class="form-content">
+          <div class="login-form">
+            <div class="title">Login</div>
+          <form action="index.html">
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="email" name="user123@email.com" placeholder="Enter your email" >
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="1234" placeholder="Enter your password" >
+              </div>
+              <div class="text"><a href="#">Forgot password?</a></div>
+              <div class="button input-box">
+                <div class="con">
+                  <div id="left" class="left"></div>
+                  <div id="right" class="right"></div>
+                  <button id="btn" onmouseenter="hovIn()" onmouseleave="hovOut()">LOG IN</button>
+                  <div id="hov" class="hov"></div>
+              </div>
+              </div>
+              <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
+            </div>
+        </form>
+      </div>
+        <div class="signup-form">
+          <div class="title">Signup</div>
+        <form  onsubmit="myfunc(event)">
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="text" id="name" placeholder="Enter your name" required/>
+              </div>
+              <div>
+                <label>Gender</label>
+                <input type="radio" id="gender" required/>Male
+                <input type="radio" id="gender"/>Female
+              </div>
+              <div>
+                <label>Date of Birth</label>
+                <input type="date" id="date_of_birth" required/>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="text" id="email" placeholder="Enter your email" required/>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="Enter Your new password" required/>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="text" id="confirm_password" placeholder="Confirm your password" required/>
+              </div>
+              <div class="text"><a href="password-generator.html">Generate new password</a></div>
+              <div class="button input-box">
+               <button class="btn" onclick="popUp()" title="Click to submit">Submit</button>
+                <div class="cont">
+                    <div class="bgc"></div>
+            
+                    <div class="conte">
+                        <div class="tick"><svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                                <title>Checkmark</title>
+                                <path fill="none" stroke="rgb(243, 243, 243)" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="80" d="M416 128L192 384l-96-96" />
+                            </svg></div>
+            
+                        <h2>submitted successfully</h2>
+                        <h4>Thank you for submiting us.</h4>
+                    </div> 
+                </div>
+              </div>
+              <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+            </div>
+      </form>
+    </div>
+    </div>
+    </div>
+  </div>
+  <script>
+    let btn = document.getElementById('btn')
+    let hov = document.getElementById('hov')
+    let left = document.getElementById('left')
+    let right = document.getElementById('right')
+
+    function hovIn() {
+        hov.classList.add('hovIn')
+        hov.classList.remove('hovOut')
+        left.classList.add('hovLeft')
+        right.classList.add('hovRight')
+
+        setTimeout(() => {
+            btn.classList.add('btnHov')
+        }, 1500);
+    }
+
+    function hovOut() {
+        left.classList.remove('hovLeft')
+        right.classList.remove('hovRight')
+        hov.classList.remove('hovIn')
+        hov.classList.add('hovOut')
+
+        btn.classList.remove('btnHov')
+    }
+</script>
+<script>
+        let cont = document.querySelector(".cont");
+let btn = document.querySelector(".btn");
+
+function popUp() {
+  btn.style.display = "none";
+  cont.classList.add("popUpOn");
+
+  setTimeout(() => {
+    cont.classList.remove("popUpOn");
+    cont.classList.add("popUpOut");
+  
+    setTimeout(() => {
+      cont.classList.remove("popUpOut");
+      btn.innerHTML = "submitted";
+      btn.classList.add("btnAfter");
+      btn.style.display = "block";
+    }, 850);
+  }, 3000);
+}
+</script>
+<script type="text/javascript">
+  function myfunc(event){
+    event.preventDefault();
+    var name=document.getElementById("name").value;
+    var temp_gender=document.getElementById("gender");
+    var date_of_birth=document.getElementById("date_of_birth").value;
+    var email=document.getElementById("email").value;
+    var password=document.getElementById("password").value;
+    var confirm_password=document.getElementById("confirm_password").value;
+    temp_gender.checked? gender="Male": gender="Female";
+    localStorage.setItem('ls_name',name);
+    localStorage.setItem('ls_gender',gender);
+    localStorage.setItem('ls_date_of_birth',date_of_birth);
+    localStorage.setItem('ls_email',email);
+    localStorage.setItem('ls_password',password);
+    localStorage.setItem('ls_confirm_password',confirm_password);
+  }
+</script> 
+<script language="vbscript" type="text/vbscript">  
+  Sub Sample ()  
+   Dim iRow  
+   Set objExcel = CreateObject ("Excel. Application")  
+   Set objWorkbook = objExcel.Workbooks.Open ("webpage.xlsx")  
+   objExcel.Application.Visible = True  
+   ObjWorkbook.Windows (1).Visible = True  
+   Set XlSheet =objWorkbook.Sheets (1)  
+   XlSheet.Activate  
+   iRow = 1  
+   With objExcel  
+       Do while .Cells (iRow, 1).value <> ""  
+           .Cells (iRow, 1).activate  
+           iRow = iRow + 1  
+       Loop  
+          .Cells (iRow, 1).value=Document.GetElementsByName ("name") (0).Value  
+          .Cells (iRow, 2).value=Document.GetElementsByName ("gender") (0).Value  
+          .Cells (iRow, 3).value=Document.GetElementsByName ("date_of_birth") (0).Value  
+          .Cells (iRow, 4).value=Document.GetElementsByName ("email") (0).Value  
+          .Cells (iRow, 5).value=Document.GetElementsByName ("password") (0).Value
+          .Cells (iRow, 6).value=Document.GetElementsByName ("confirm_password") (0).Value
+          MsgBox "Data Added Successfully”, vbinformation  
+          Document.GetElementsByName ("name") (0).Value=""  
+          Document.GetElementsByName ("gender") (0).Value=""  
+          Document.GetElementsByName ("date_of_birth") (0).Value=""  
+          Document.GetElementsByName ("email") (0).Value=""  
+          Document.GetElementsByName ("password") (0).Value=""  
+          Document.GetElementsByName ("confirm_password") (0).Value=""  
+      End With  
+      ObjWorkbook. Save  
+      ObjWorkbook. Close  
+      Set objWorkbook = Nothing  
+      Set objExcel = Nothing  
+  End Sub  
+</script>  
+</body>
+</html>

@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@500&family=Fraunces:opsz,wght@9..144,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #252525;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    font-size: 32px;
+    font-family: 'Roboto', sans-serif;
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:hover {
+    letter-spacing: 2px;
+    padding: 15px 50px;
+}
+
+.btnAfter {
+    background-color: rgb(198, 0, 0);
+}
+
+.container {
+    width: 400px;
+    height: 250px;
+    background-color: rgb(243, 243, 243);
+    border-radius: 20px;
+    position: relative;
+    display: none;
+    justify-content: center;
+    transform: scale(0);
+}
+
+.popUpOn {
+    display: flex;
+    animation-name: popUp;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes popUp {
+    0% {
+        transform: scale(0);
+    }
+
+    25% {
+        transform: scale(1.1);
+    }
+
+    50% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+.popUpOut {
+    display: flex;
+    animation-name: popOut;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes popOut {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(0.9);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(0);
+        display: none;
+    }
+
+}
+
+.bgc {
+    width: 350px;
+    height: 25px;
+    background-color: rgb(0, 231, 0);
+    position: absolute;
+    bottom: -25px;
+    border-radius: 0 0 10px 10px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content .tick {
+    width: 125px;
+    height: 125px;
+    background-color: rgb(0, 231, 0);
+    border-radius: 50%;
+    position: absolute;
+    top: -62.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 13px;
+    border: 10px solid rgb(243, 243, 243);
+}
+
+.tick svg {
+    width: 80px;
+    height: 80px;
+}
+
+.content h2 {
+    margin-top: 100px;
+    font-size: 30px;
+    color: rgb(19, 184, 19);
+    text-transform: capitalize;
+    font-family: 'Pacifico', cursive;
+}
+
+.content h4 {
+    margin-top: 10px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #252525;
+    font-family: 'Roboto', sans-serif;
+}
